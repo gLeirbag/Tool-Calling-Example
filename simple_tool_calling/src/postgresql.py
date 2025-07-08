@@ -15,10 +15,12 @@ def connect_to_postgresql():
         print("🚫 The application's purpose will not be able to be demonstrated")
         sys.exit(1)
 
-def get_comida_favorita(nome: str):
+def get_favorite_food(name: str):
     cursor = connection.cursor()
-    cursor.execute(f"SELECT comida FROM comida_favorita WHERE nome_pessoa='{nome}'")
+    cursor.execute(f"SELECT comida FROM comida_favorita WHERE nome_pessoa='{name}'")
 
-    records = cursor.fetchall()
-    record = records[0][0]
-    return record
+    record = cursor.fetchone()
+    if record:
+        return record[0]
+    else:
+        return None

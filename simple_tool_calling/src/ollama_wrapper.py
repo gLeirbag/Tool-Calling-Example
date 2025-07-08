@@ -13,7 +13,7 @@ first_message = {
 messages.append(first_message)
 
 def detect_food_subject(current_messages: list[str]) -> bool:
-    filtered_message = messages[1:]
+    filtered_message = current_messages[1:]
     filtered_message.insert(0,
         {"role": "system", "content": "Detect if the current subject of the text is a question of favorite food of some person. Generate an json"}
     )
@@ -40,7 +40,7 @@ def extract_name_from_message(user_message: str) -> str:
 
 def start_chat_thread(food_tool_function: Callable):
     while True:
-        print("🧐 Usuário:", end=" ")
+        print("🧐 User:", end=" ")
         user_content: str = input()
         user_message = {"role": "user", "content": user_content}
         messages.append(user_message)
