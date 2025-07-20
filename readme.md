@@ -12,7 +12,7 @@ Therefore, the LLM has to know in advance which functions it has access to. More
 
 One way to implementing this trigger is having the LLM send a signal to the application that wrap itself. This signal could be a **structured json** that contain the information of the function to be called.
 
-In this scenario, the LLM must be informed beforehand that - when sensing that could provide a better answer with tool - should respond with the structured json.
+In this scenario, the LLM must be informed beforehand that - when sensing that could provide a better answer with a tool - should respond with the structured json.
 
 ## The Projects
 
