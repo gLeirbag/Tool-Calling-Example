@@ -17,10 +17,10 @@ def connect_to_postgresql():
 
 def get_favorite_food(name: str):
     cursor = connection.cursor()
-    cursor.execute(f"SELECT comida FROM comida_favorita WHERE nome_pessoa='{name}'")
+    cursor.execute(f"SELECT comida FROM favorite_food WHERE name='{name}'")
 
     record = cursor.fetchone()
     if record:
         return record[0]
     else:
-        return None
+        raise ValueError("No favorite food found for the given name.")
